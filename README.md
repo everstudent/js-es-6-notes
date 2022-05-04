@@ -33,7 +33,7 @@ person = {age: 30} // Error
 setTimeout(() => console.log(i), 1000);
 ```
 
-### function params
+### Function params
 ```js
 // default values
 function test(a=1, b=2) {
@@ -41,8 +41,19 @@ function test(a=1, b=2) {
 }
 
 // required params
-function req(x = (function() { throw new Error('this is a required argument') })()){
+function req(x = (() => { throw new Error('this is a required argument') })()){
   return x * 2;
+}
+
+// variable list of params
+function test(a,b,...args) {
+   console.log(args) // array of all params except first two
 }
 ```
 
+### Spreading
+```js
+let a = [1,2];
+let b = [...a, 3,4, ...a]; // [1,2,3,4,1,2]
+
+```
