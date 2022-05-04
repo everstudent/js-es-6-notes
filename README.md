@@ -189,3 +189,39 @@ console.log(gen.next()); // { value: 0, done: false }
 console.log(gen.next()); // { value: 1, done: false }
 console.log(gen.next()); // { value: 2, done: false }
 ```
+
+### Promises
+Promise - is a result object of async operation
+```js
+function getUsers() {
+  return new Promise((resolve, reject) => { // revolve is called when ok, reject is called when not ok
+    setTimeout(() => {
+      resolve([
+        { username: 'john', email: 'john@test.com' },
+        { username: 'jane', email: 'jane@test.com' },
+      ]);
+    }, 1000);
+  });
+}
+
+const promise = getUsers();
+
+promise.then((users) => { // then accepts resolve/reject callbacks
+  console.log(users);
+});
+
+promise.catch(...... // only error callback
+promise.finally(.... // either error or success (any) callback
+
+
+// resolve all promises callback
+Promise.all([p1, p2, p3]).then((results) => { // p1, p2, p3 - promises, "results" - array of returned values in promises
+    console.log('ok');
+});
+
+
+// handle first resolved/rejected promise
+Promise.race([p1, p2]) // p1, p2 - promises
+    .then(value => console.log(`Resolved: ${value}`))
+    .catch(reason => console.log(`Rejected: ${reason}`));
+```
