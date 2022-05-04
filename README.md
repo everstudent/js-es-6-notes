@@ -41,6 +41,8 @@ add(1,2) // 3
 setTimeout(() => console.log(i), 1000);
 ```
 
+Don't use arrow function when you want to refer to `this.*` inside a function context.
+
 ### Function params
 ```js
 // default values
