@@ -121,3 +121,17 @@ import * as cal from './cal.js'; // cal.var1, cal.func1 and so on ...
 import './extension.js'; // e.g. for prototype definitions
 ```
 
+### Classes
+```js
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+    getName() {
+        return this.name;
+    }
+}
+
+let p1 = new Person('Denys')
+console.log(p1.getName()) // Denys
+```
