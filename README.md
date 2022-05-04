@@ -22,3 +22,10 @@
 // passing callback
 setTimeout(() => console.log(i), 1000);
 ```
+
+### constants
+
+```js
+const TEST = 'hi';
+```
+
