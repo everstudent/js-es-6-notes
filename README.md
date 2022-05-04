@@ -57,3 +57,26 @@ let a = [1,2];
 let b = [...a, 3,4, ...a]; // [1,2,3,4,1,2]
 
 ```
+
+### Object properties
+```js
+// Automatic properties from variables
+let name = 'Computer', status = 'On';
+let machine = { name, status};
+console.log(machine) // { name: 'Computer', status: 'On' }
+
+// Computed properies names
+let obj = {[name]: 'Dell'}
+console.log(obj); // {Computer: 'Dell'}
+```
+
+### Object methods
+```js
+let server = {
+    name,
+    restart() { // short syntax to define object methods
+        console.log("The" + this.name + " is restarting...");
+    }
+};
+```
+
