@@ -97,3 +97,27 @@ for (const {score} of ratings) { // "score" property of each object will go to "
 }
 ```
 
+### Templates
+```js
+let a = 2;
+let tpl = `hi ${a}` // hi 2
+```
+
+### Destructure
+```js
+let [a,b] = [1,2];
+console.log(a) // 1
+
+// object properties
+let person = { firstName: 'John', lastName: 'Doe' };
+let { firstName: fname, lastName: lname } = person;
+console.log(fname) // John
+```
+
+### Importing modules
+```js
+import {some_var, some_func} from './module.js';
+import * as cal from './cal.js'; // cal.var1, cal.func1 and so on ...
+import './extension.js'; // e.g. for prototype definitions
+```
+
