@@ -150,3 +150,42 @@ let p1 = new Person('Denys')
 console.log(p1.getName()) // Denys
 ```
 
+### Iterator
+```js
+class Sequence {
+    constructor( start = 0, end = Infinity, interval = 1 ) {
+        this.start = start;
+        this.end = end;
+        this.interval = interval;
+    }
+    [Symbol.iterator]() { // this method should return iterator protocol object with "next()" function that returns an object: {value: , done: }
+        let counter = 0;
+        let nextIndex = this.start;
+        return  {
+            next: () => {
+                if ( nextIndex <= this.end ) {
+                    let result = { value: nextIndex,  done: false }
+                    nextIndex += this.interval;
+                    counter++;
+                    return result;
+                }
+                return { value: counter, done: true };
+            }
+        }
+    }
+};
+```
+
+### Function generator
+```js
+function* generate(n = 100) {
+    for ( let i = 0; i < n; i++ ) {
+        yield i;
+    }
+}
+
+let gen = generate(10);
+console.log(gen.next()); // { value: 0, done: false }
+console.log(gen.next()); // { value: 1, done: false }
+console.log(gen.next()); // { value: 2, done: false }
+```
