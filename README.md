@@ -29,6 +29,14 @@ person = {age: 30} // Error
 
 ### Arrow function
 ```js
+// short syntax
+let add = (x, y) => x + y;
+add(1,2) // 3
+
+// longer syntax
+let add = (x, y) => {return x + y; };
+add(1,2) // 3
+
 // passing callback
 setTimeout(() => console.log(i), 1000);
 ```
@@ -123,15 +131,20 @@ import './extension.js'; // e.g. for prototype definitions
 
 ### Classes
 ```js
-class Person {
+class Person extends People { // inherit "People" class
     constructor(name) {
+        super(name) // call parent constructor
         this.name = name;
     }
     getName() {
         return this.name;
+    }
+    static callMeStatically(x) { // static method
+        return 2;
     }
 }
 
 let p1 = new Person('Denys')
 console.log(p1.getName()) // Denys
 ```
+
