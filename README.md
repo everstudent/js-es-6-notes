@@ -33,3 +33,16 @@ person = {age: 30} // Error
 setTimeout(() => console.log(i), 1000);
 ```
 
+### function params
+```js
+// default values
+function test(a=1, b=2) {
+    return a + b;
+}
+
+// required params
+function req(x = (function() { throw new Error('this is a required argument') })()){
+  return x * 2;
+}
+```
+
