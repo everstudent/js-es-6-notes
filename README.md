@@ -80,3 +80,20 @@ let server = {
 };
 ```
 
+### `for...of` loop
+```js
+// array itearting
+for (let a of [1,2,3]) console.log(a);
+
+// object destructing
+const ratings = [
+    {user: 'John',score: 3},
+    {user: 'Jane',score: 4}
+];
+
+let sum = 0;
+for (const {score} of ratings) { // "score" property of each object will go to "score variable"
+    sum += score;
+}
+```
+
