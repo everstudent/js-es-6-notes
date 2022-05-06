@@ -225,3 +225,71 @@ Promise.race([p1, p2]) // p1, p2 - promises
     .then(value => console.log(`Resolved: ${value}`))
     .catch(reason => console.log(`Rejected: ${reason}`));
 ```
+
+### Maps
+```js
+let users = new Map(); // key-value structure
+users.set('den', {name: 'Denys'});
+users.set('zhenya', {name: 'Yevheniia'});
+console.log(users.size); // 2
+```
+
+### Sets
+Stores a collection of unique values:
+```js
+let row = new Set(['den', 'zhenya']);
+```
+
+### Arrays
+```js
+// create arrays from values
+console.log( Array.of(1,2,'a') ); // [ 1, 2, 'a' ]
+
+// create array from iterable object
+Array.from( Iterable ); // => [...]
+
+// mapping
+console.log(Array.from( [1, 2, 3], x => x * x )); // [ 1, 4, 9 ]
+
+// find first value by callback
+console.log( [1, 2, 3, 4, 5].find(x => x > 3) ); // 4
+console.log( [1, 2, 3, 4, 5].findIndex(x => x > 3) ); // 3
+```
+
+### Cloning and merging
+```js
+let clone = Object.assign({}, obj); // "obj" cloned into "clone"
+let merged = Object.assign({}, obj1, obj2); // "obj1" and "obj2" merged into "merged"
+```
+
+### String search
+```js
+console.log( 'hi den'.startsWith('hi') );   // true 
+console.log( 'hi den'.endsWith('den') );    // true
+console.log( 'hi den'.includes('de') );     // true
+console.log( 'hi den'.includes('aaa') );    // false
+```
+
+### Proxies
+```js
+const user = {
+    firstName: 'John',
+    lastName: 'Doe',
+    email: 'john.doe@example.com',
+}
+
+const handler = {
+    get(target, property) {
+        return target[property] + '!';
+    }
+}
+
+let proxyUser = new Proxy(user, handler);
+
+console.log( proxyUser.email ); // john.doe@example.com!
+```
+
+### Reflections
+```js
+Reflect.apply(functionName, thisArg, args); // call "functionName" with "this" pointing to "thisArg" and "args" arguments list
+```
